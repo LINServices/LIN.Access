@@ -1,4 +1,5 @@
-﻿using LIN.Shared.Tools;
+﻿global using LIN.Shared.Tools;
+global using LIN.Types.Enumerations;
 
 namespace LIN.Access.Controllers;
 
@@ -600,7 +601,7 @@ public static class User
     /// <summary>
     /// Actualiza la informacion de un usuario
     /// </summary>
-    public async static Task<ResponseBase> UpdateGender(string token, Sexos genero)
+    public async static Task<ResponseBase> UpdateGender(string token, Genders genero)
     {
 
         // Variables
