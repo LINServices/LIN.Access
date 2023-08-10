@@ -1,5 +1,5 @@
 ﻿global using LIN.Shared.Models;
-global using LIN.Shared.Responses;
+global using LIN.Types.Responses;
 global using Newtonsoft.Json;
 global using System;
 global using System.Net.Http;
