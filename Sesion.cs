@@ -49,7 +49,7 @@ public sealed class Sesion
     /// <summary>
     /// Recarga o inicia una sesion
     /// </summary>
-    public static async Task<(Sesion? Sesion, Responses Response)> LoginWith(string username, string password, Platforms platform, bool priv = false)
+    public static async Task<(Sesion? Sesion, Responses Response)> LoginWith(string username, string password, dynamic platform, bool priv = false)
     {
 
         // Cierra la sesion Actual
@@ -76,7 +76,7 @@ public sealed class Sesion
     /// <summary>
     /// Recarga o inicia una sesion
     /// </summary>
-    public static async Task<(Sesion? Sesion, Responses Response)> LoginWith(string token, Platforms platform)
+    public static async Task<(Sesion? Sesion, Responses Response)> LoginWith(string token, dynamic platform)
     {
 
         // Cierra la sesion Actual

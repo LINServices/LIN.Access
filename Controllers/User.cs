@@ -363,50 +363,6 @@ public static class User
 
 
 
-    /// <summary>
-    /// Busqueda de usuarios por medio de su ID
-    /// </summary>
-    public async static Task<ReadAllResponse<EmailDataModel>> ReadEmails(string token)
-    {
-
-        // Crear HttpClient
-        using var httpClient = new HttpClient();
-
-        // ApiServer de la solicitud GET
-        string url = ApiServer.PathURL("user/mails");
-
-        // Crear HttpRequestMessage y agregar el encabezado
-        var request = new HttpRequestMessage(HttpMethod.Get, url);
-        request.Headers.Add("token", $"{token}");
-
-        try
-        {
-            // Hacer la solicitud GET
-            var response = await httpClient.SendAsync(request);
-
-            // Leer la respuesta como una cadena
-            string responseBody = await response.Content.ReadAsStringAsync();
-
-            var obj = JsonConvert.DeserializeObject<ReadAllResponse<EmailDataModel>>(responseBody) ?? new();
-
-
-            return obj ?? new();
-
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"Error al hacer la solicitud GET: {e.Message}");
-        }
-
-
-        return new();
-
-
-
-
-
-    }
-
 
 
 
@@ -510,46 +466,6 @@ public static class User
 
 
 
-    /// <summary>
-    /// Actualiza la informacion de un usuario
-    /// </summary>
-    public async static Task<ReadOneResponse<EmailDataModel>> ForgetPassword(string user)
-    {
-
-        // Variables
-        var client = new HttpClient();
-
-        string url = ApiServer.PathURL("account/security/password/forget");
-
-        url = Web.AddParameters(url, new()
-        {
-            {"user",user }
-        });
-
-        try
-        {
-            HttpRequestMessage ms = new(HttpMethod.Post, url);
-
-            // Envía la solicitud
-            HttpResponseMessage response = await client.SendAsync(ms);
-
-            // Lee la respuesta del servidor
-            string responseContent = await response.Content.ReadAsStringAsync();
-
-            var obj = JsonConvert.DeserializeObject<ReadOneResponse<EmailDataModel>>(responseContent);
-
-            return obj ?? new();
-
-        }
-        catch
-        {
-        }
-
-        return new();
-
-    }
-
-
 
 
     public async static Task<ResponseBase> ResendMail(int mail, string token)
@@ -626,48 +542,6 @@ public static class User
         return new();
 
     }
-
-
-
-
-
-
-
-
-    public async static Task<ResponseBase> AddEmail(string password, EmailDataModel modelo)
-    {
-
-        // Variables
-        var client = new HttpClient();
-        client.DefaultRequestHeaders.Add("password", password);
-
-        string url = ApiServer.PathURL("account/security/email/add");
-        string json = JsonConvert.SerializeObject(modelo);
-
-        try
-        {
-            // Contenido
-            StringContent content = new(json, Encoding.UTF8, "application/json");
-
-            // Envía la solicitud
-            HttpResponseMessage response = await client.PostAsync(url, content);
-
-            // Lee la respuesta del servidor
-            string responseContent = await response.Content.ReadAsStringAsync();
-
-            var obj = JsonConvert.DeserializeObject<ResponseBase>(responseContent);
-
-            return obj ?? new();
-
-        }
-        catch
-        {
-        }
-
-        return new();
-
-    }
-
 
 
 
