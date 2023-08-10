@@ -7,6 +7,7 @@ global using System.Text;
 global using System.Threading.Tasks;
 global using LIN.Shared.Enumerations;
 global using Microsoft.AspNetCore.SignalR.Client;
+global using LIN.Modules;
 
 namespace LIN.Access;
 

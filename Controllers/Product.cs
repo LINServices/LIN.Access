@@ -105,7 +105,7 @@ public static class Product
         // ApiServer de la solicitud GET
         string url = ApiServer.PathURL("product/read/all/templates");
 
-        url = LIN.Shared.Tools.Web.AddParameters(url, new()
+        url = LIN.Modules.Web.AddParameters(url, new()
         {
             { "template", template }
         });
