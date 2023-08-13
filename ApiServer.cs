@@ -15,9 +15,8 @@ public static class ApiServer
             if (IsSeted)
                 return SetedUrl;
 
-            return "";
-            return "https://localhost:7019/";
             return "https://linserver.azurewebsites.net/";
+            return "https://localhost:7019/";
         }
     }
 
