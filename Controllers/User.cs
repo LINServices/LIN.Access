@@ -1,4 +1,4 @@
-﻿global using LIN.Shared.Tools;
+﻿global using LIN.Modules;
 global using LIN.Types.Enumerations;
 
 namespace LIN.Access.Controllers;
