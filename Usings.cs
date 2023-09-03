@@ -1,4 +1,4 @@
-﻿global using LIN.Shared.Models;
+﻿
 global using LIN.Types.Responses;
 global using Newtonsoft.Json;
 global using System;
